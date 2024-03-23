@@ -6,6 +6,8 @@
   "mixins": [
   ],
   "client": [
+    "api.BufferBuilderMixin",
+    "api.CameraMixin"
   ],
   "injectors": {
     "defaultRequire": 1
