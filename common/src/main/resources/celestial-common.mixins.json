@@ -4,15 +4,19 @@
   "package": "fishcute.celestial.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "BiomeMixin",
     "Matrix3fMixin",
-    "Matrix4fMixin"
+    "Matrix4fMixin",
+    "api.ResourceLocationMixin"
   ],
   "client": [
     "PoseMixin",
     "api.BufferBuilderMixin",
     "api.CameraMixin",
     "api.ClientLevelMixin",
-    "api.PoseStackMixin"
+    "api.PoseStackMixin",
+    "api.ProgramMixin",
+    "api.VertexBufferMixin"
   ],
   "injectors": {
     "defaultRequire": 1
