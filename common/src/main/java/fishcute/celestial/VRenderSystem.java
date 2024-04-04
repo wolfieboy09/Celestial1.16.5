@@ -54,10 +54,10 @@ public class VRenderSystem implements IRenderSystem {
         RenderSystem.defaultBlendFunc();
     }
     public void setShaderPositionColor() {
-        RenderSystem.setShader(GameRenderer::getPositionColorShader);
+        //RenderSystem.setShader(GameRenderer::getPositionColorShader);
     }
     public void setShaderPositionTex() {
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        //RenderSystem.setShader(GameRenderer::getPositionTexShader);
     }
 
     public void toggleTexture(boolean texture) {
@@ -68,6 +68,6 @@ public class VRenderSystem implements IRenderSystem {
     }
 
     public void setShaderTexture(int i, IResourceLocationWrapper j) {
-        RenderSystem.setShaderTexture(i, (ResourceLocation) j);
+        //RenderSystem.setShaderTexture(i, (ResourceLocation) j);
     }
 }
