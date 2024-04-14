@@ -21,6 +21,8 @@
     "defaultRequire": 1
   },
   "mixins": [
+    "Matrix3fMixin",
+    "Matrix4fMixin",
     "api.ClientLevelMixin",
     "api.ResourceLocationMixin"
   ]
