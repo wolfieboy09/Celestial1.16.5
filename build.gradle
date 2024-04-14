@@ -45,13 +45,13 @@ allprojects {
         // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
         // See https://docs.gradle.org/current/userguide/declaring_repositories.html
         // for more information about repositories.
-        maven {
-            url = uri("https://maven.pkg.github.com/block36underscore/CelestialExpressions")
-            credentials {
-                username = project.findProperty("githubUser")
-                password = project.findProperty("githubToken")
-            }
-        }
+//        maven {
+//            url = uri("https://maven.pkg.github.com/block36underscore/CelestialExpressions")
+//            credentials {
+//                username = project.findProperty("githubUser")
+//                password = project.findProperty("githubToken")
+//            }
+//        }
     }
 
     tasks.withType(JavaCompile) {
@@ -75,6 +75,12 @@ allprojects {
 
     dependencies {
         implementation "org.jetbrains.kotlin:${rootProject.kotlin}"
-        implementation "celestialexpressions:celestialexpressions:${rootProject.celestial_expressions_version}"
+        //implementation "celestialexpressions:celestialexpressions:${rootProject.celestial_expressions_version}"
+    }
+}
+
+configure(subprojects.findAll {it.name != "CelestialExpressions"} ) {
+    dependencies {
+        implementation project(":CelestialExpressions")
     }
 }

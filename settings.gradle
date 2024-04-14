@@ -12,3 +12,5 @@ include("fabric")
 include("forge")
 
 include(":CelestialMain")
+
+include(":CelestialExpressions")
