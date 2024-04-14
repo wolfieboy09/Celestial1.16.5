@@ -6,8 +6,6 @@ import com.mojang.blaze3d.vertex.VertexBuffer;
 import fishcute.celestialmain.api.minecraft.IRenderSystem;
 import fishcute.celestialmain.api.minecraft.wrappers.IResourceLocationWrapper;
 import net.minecraft.client.renderer.FogRenderer;
-import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 
 public class VRenderSystem implements IRenderSystem {
