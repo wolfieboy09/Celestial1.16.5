@@ -16,7 +16,7 @@ public class CameraMixin implements ICameraWrapper {
     public boolean celestial$doesFogBlockSky() {
         Camera self = (Camera)(Object) this;
         Fluid type = self.getFluidInCamera().getType();
-        return type == Fluids.FLOWING_LAVA || type == Fluids.LAVA;
+        return type != Fluids.FLOWING_LAVA || type != Fluids.LAVA;
     }
 
     @Override

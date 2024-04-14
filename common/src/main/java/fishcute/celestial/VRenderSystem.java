@@ -5,7 +5,9 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.VertexBuffer;
 import fishcute.celestialmain.api.minecraft.IRenderSystem;
 import fishcute.celestialmain.api.minecraft.wrappers.IResourceLocationWrapper;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.FogRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 
 public class VRenderSystem implements IRenderSystem {
@@ -34,7 +36,7 @@ public class VRenderSystem implements IRenderSystem {
         RenderSystem.depthMask(enable);
     }
     public void setShaderColor(float f, float g, float h, float a) {
-        //RenderSystem.setShaderColor(f, g, h, a);
+        RenderSystem.color4f(f, g, h, a);
     }
     public void clearColor(float f, float g, float h, float a) {
         RenderSystem.clearColor(f, g, h, a);
@@ -59,13 +61,18 @@ public class VRenderSystem implements IRenderSystem {
     }
 
     public void toggleTexture(boolean texture) {
-        // Apparently unused in 1.19.4+
+        if (texture) {
+            RenderSystem.enableTexture();
+        }
+        else {
+            RenderSystem.disableTexture();
+        }
     }
     public void blendFuncSeparate() {
         RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
     }
 
     public void setShaderTexture(int i, IResourceLocationWrapper j) {
-        //RenderSystem.setShaderTexture(i, (ResourceLocation) j);
+        Minecraft.getInstance().getTextureManager().bind((ResourceLocation) j);
     }
 }
