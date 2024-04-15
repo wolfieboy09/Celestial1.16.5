@@ -1,11 +1,11 @@
 package fishcute.celestial.mixin;
 
-import com.mojang.math.Matrix4f;
+import com.mojang.math.Matrix3f;
 import fishcute.celestial.access.AccessibleMatrix3f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(Matrix4f.class)
+@Mixin(Matrix3f.class)
 public class Matrix3fMixin implements AccessibleMatrix3f {
     @Shadow
     protected float m00;
