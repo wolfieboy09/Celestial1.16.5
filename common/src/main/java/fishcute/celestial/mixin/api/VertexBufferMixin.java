@@ -1,5 +1,6 @@
 package fishcute.celestial.mixin.api;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexBuffer;
 import com.mojang.math.Matrix4f;
 import fishcute.celestialmain.api.math.DrawMode;
@@ -19,10 +20,6 @@ public class VertexBufferMixin implements IVertexBufferWrapper {
     public void celestial$drawWithShader(Object matrix, Object projectionMatrix, IShaderInstanceWrapper shader) {
         VertexBuffer self = ((VertexBuffer)(Object) this);
 
-        Matrix4f mat = ((Matrix4f) projectionMatrix);
-        mat.multiply((Matrix4f) matrix);
-
-        self.bind();
-        self.draw(mat, DrawMode.QUADS);
+        self.draw(((Matrix4f) matrix), 7);
     }
 }

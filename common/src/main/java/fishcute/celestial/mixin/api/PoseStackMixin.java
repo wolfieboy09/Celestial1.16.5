@@ -45,11 +45,11 @@ public class PoseStackMixin implements IPoseStackWrapper {
     private final static Matrix3f celestial$int3 = new Matrix3f();
 
     @Unique
-    private static final Vector3f celestial$XN = new Vector3f(-1.0F, 0.0F, 0.0F);
+    private static final Vector3f celestial$XN = new Vector3f(1.0F, 0.0F, 0.0F);
     @Unique
-    private static final Vector3f celestial$YN = new Vector3f(0.0F, -1.0F, 0.0F);
+    private static final Vector3f celestial$YN = new Vector3f(0.0F, 1.0F, 0.0F);
     @Unique
-    private static final Vector3f celestial$ZN = new Vector3f(0.0F, 0.0F, -1.0F);
+    private static final Vector3f celestial$ZN = new Vector3f(0.0F, 0.0F, 1.0F);
 
     @Override
     public void celestial$mulPose(Axis a, float rot) {

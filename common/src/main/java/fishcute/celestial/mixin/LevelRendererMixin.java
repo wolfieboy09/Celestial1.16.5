@@ -1,10 +1,9 @@
 package fishcute.celestial.mixin;
-import com.mojang.blaze3d.vertex.BufferBuilder;
-import com.mojang.blaze3d.vertex.DefaultVertexFormat;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexBuffer;
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.*;
 import fishcute.celestialmain.api.minecraft.wrappers.*;
 import fishcute.celestialmain.sky.CelestialSky;
+import fishcute.celestialmain.version.independent.Instances;
 import fishcute.celestialmain.version.independent.VersionLevelRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -21,7 +20,8 @@ public class LevelRendererMixin {
     private VertexBuffer skyBuffer;
     @Shadow
     private VertexBuffer darkBuffer;
-
+    @Shadow
+    private VertexFormat skyFormat;
     @Shadow
     private ClientLevel level;
 
@@ -30,18 +30,34 @@ public class LevelRendererMixin {
         bufferBuilder.begin(7, DefaultVertexFormat.POSITION);
         ci.cancel();
     }
+
+    private final VersionLevelRenderer.RunnableArg skyFormatF = new VersionLevelRenderer.RunnableArg() {
+        public void run() {
+            if (this.b) {
+                RenderSystem.enableFog();
+                skyFormat.setupBufferState(0L);
+            }
+            else {
+                skyFormat.clearBufferState();
+                RenderSystem.disableFog();
+            }
+        }
+    };
+
     @Inject(method = "renderSky", at = @At("HEAD"), cancellable = true)
     private void renderSky(PoseStack matrices, float tickDelta, CallbackInfo info) {
         if (CelestialSky.doesDimensionHaveCustomSky()) {
             info.cancel();
 
+            RenderSystem.disableAlphaTest();
             VersionLevelRenderer.renderLevel((Object) matrices.last().pose(),
                     (IPoseStackWrapper) matrices,
                     (IVertexBufferWrapper) skyBuffer,
                     (IVertexBufferWrapper) darkBuffer,
                     (ICameraWrapper) Minecraft.getInstance().gameRenderer.getMainCamera(),
                     (ILevelWrapper) level,
-                    tickDelta
+                    tickDelta,
+                    skyFormatF
             );
         }
     }

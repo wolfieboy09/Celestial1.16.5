@@ -2,8 +2,11 @@ package fishcute.celestial;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.BufferBuilder;
+import com.mojang.blaze3d.vertex.BufferUploader;
 import com.mojang.blaze3d.vertex.VertexBuffer;
 import fishcute.celestialmain.api.minecraft.IRenderSystem;
+import fishcute.celestialmain.api.minecraft.wrappers.IBufferBuilderWrapper;
 import fishcute.celestialmain.api.minecraft.wrappers.IResourceLocationWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.FogRenderer;
@@ -74,5 +77,8 @@ public class VRenderSystem implements IRenderSystem {
 
     public void setShaderTexture(int i, IResourceLocationWrapper j) {
         Minecraft.getInstance().getTextureManager().bind((ResourceLocation) j);
+    }
+    public void shadeModel(int i) {
+        RenderSystem.shadeModel(i);
     }
 }
