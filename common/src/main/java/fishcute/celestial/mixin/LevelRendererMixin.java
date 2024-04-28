@@ -25,12 +25,6 @@ public class LevelRendererMixin {
     @Shadow
     private ClientLevel level;
 
-    @Inject(method = "drawStars", at = @At("HEAD"), cancellable = true)
-    private void drawStars(BufferBuilder bufferBuilder, CallbackInfo ci) {
-        bufferBuilder.begin(7, DefaultVertexFormat.POSITION);
-        ci.cancel();
-    }
-
     private final VersionLevelRenderer.RunnableArg skyFormatF = new VersionLevelRenderer.RunnableArg() {
         public void run() {
             if (this.b) {
@@ -49,7 +43,7 @@ public class LevelRendererMixin {
         if (CelestialSky.doesDimensionHaveCustomSky()) {
             info.cancel();
 
-            RenderSystem.disableAlphaTest();
+            //RenderSystem.disableAlphaTest();
             VersionLevelRenderer.renderLevel((Object) matrices.last().pose(),
                     (IPoseStackWrapper) matrices,
                     (IVertexBufferWrapper) skyBuffer,

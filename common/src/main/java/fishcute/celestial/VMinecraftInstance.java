@@ -223,10 +223,10 @@ public class VMinecraftInstance implements IMinecraftInstance {
     }
 
     public boolean disableFogChanges() {
-        return minecraft.cameraEntity.isInWater() || minecraft.cameraEntity.isInLava() || minecraft.player.hasEffect(MobEffects.BLINDNESS);
+        return minecraft.cameraEntity != null && (minecraft.cameraEntity.isInWater() || minecraft.cameraEntity.isInLava() || minecraft.player.hasEffect(MobEffects.BLINDNESS));
     }
     public boolean isCameraInWater() {
-        return minecraft.cameraEntity.isInWater();
+        return minecraft.cameraEntity != null && minecraft.cameraEntity.isInWater();
     }
     public double getNightVisionModifier() {
         if (!doesPlayerExist() || !minecraft.player.hasEffect(MobEffects.NIGHT_VISION))
