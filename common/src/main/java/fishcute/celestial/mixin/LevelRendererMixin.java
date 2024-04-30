@@ -42,8 +42,7 @@ public class LevelRendererMixin {
     private void renderSky(PoseStack matrices, float tickDelta, CallbackInfo info) {
         if (CelestialSky.doesDimensionHaveCustomSky()) {
             info.cancel();
-
-            //RenderSystem.disableAlphaTest();
+            
             VersionLevelRenderer.renderLevel((Object) matrices.last().pose(),
                     (IPoseStackWrapper) matrices,
                     (IVertexBufferWrapper) skyBuffer,

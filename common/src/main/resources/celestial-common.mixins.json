@@ -15,7 +15,8 @@
     "api.BufferBuilderMixin",
     "api.CameraMixin",
     "api.PoseStackMixin",
-    "api.VertexBufferMixin"
+    "api.VertexBufferMixin",
+    "PackRepositoryMixin"
   ],
   "injectors": {
     "defaultRequire": 1
