@@ -28,7 +28,7 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 
-    shadowCommon "org.jetbrains.kotlin:${rootProject.kotlin}"
+    shadowCommon "org.jetbrains.kotlin:${rootProject.kotlin}" //TODO: Use Kotlin for Forge instead
     shadowCommon "celestialexpressions:celestialexpressions:${rootProject.celestial_expressions_version}"
     shadowCommon(implementation(project(":CelestialMain")))
 }
