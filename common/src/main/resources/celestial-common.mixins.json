@@ -16,7 +16,7 @@
     "api.CameraMixin",
     "api.PoseStackMixin",
     "api.VertexBufferMixin",
-    "PackRepositoryMixin"
+    "TextureManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
