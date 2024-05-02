@@ -36,13 +36,6 @@ dependencies {
 
 repositories {
     maven {
-        url = uri("https://maven.pkg.github.com/block36underscore/CelestialExpressions")
-        credentials {
-            username = project.findProperty("githubUser")
-            password = project.findProperty("githubToken")
-        }
-    }
-    maven {
         name = 'Kotlin for Forge'
         url = 'https://thedarkcolour.github.io/KotlinForForge/'
     }
