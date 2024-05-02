@@ -26,9 +26,3 @@ A Minecraft mod for Fabric and Forge that allows you to customize the sky.
    versionRange="[1.16.5,1.17)"
    ordering="NONE"
    side="BOTH"
-
-[[dependencies.celestial]]
-modId="kotlinforforge"
-versionRange="[1.16.0,)"
-mandatory=true
-ordering="BEFORE"

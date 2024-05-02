@@ -5,15 +5,11 @@ import com.mojang.blaze3d.platform.InputConstants;
 import fishcute.celestial.Celestial;
 import fishcute.celestialmain.util.ClientTick;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.client.Minecraft;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.resource.ISelectiveResourceReloadListener;
 
 @Mod(Celestial.MOD_ID)
 public class CelestialForge {
@@ -32,6 +28,11 @@ public class CelestialForge {
         }
     }
     public CelestialForge() {
+        try {
+            Class.forName("kotlin.Unit");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("Kotlin is not loaded. Please install Kotlin for Forge. \n https://modrinth.com/mod/kotlin-for-forge");
+        }
         Celestial.init();
         ClientRegistry.registerKeyBinding(reloadSky);
         MinecraftForge.EVENT_BUS.register(CelestialForge.class);

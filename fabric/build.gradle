@@ -30,7 +30,7 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 
-    shadowCommon "celestialexpressions:celestialexpressions:${rootProject.celestial_expressions_version}"
+    shadowCommon(implementation(project(":CelestialExpressions")))
     shadowCommon(implementation(project(":CelestialMain")))
 }
 

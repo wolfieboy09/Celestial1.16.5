@@ -5,6 +5,7 @@ import fishcute.celestial.access.AccessibleMatrix3f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
+
 @Mixin(Matrix3f.class)
 public class Matrix3fMixin implements AccessibleMatrix3f {
     @Shadow

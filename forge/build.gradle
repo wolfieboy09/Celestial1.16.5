@@ -28,7 +28,7 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 
-    shadowCommon "celestialexpressions:celestialexpressions:${rootProject.celestial_expressions_version}"
+    shadowCommon(implementation(project(":CelestialExpressions")))
     shadowCommon(implementation(project(":CelestialMain")))
 
     modImplementation 'thedarkcolour:kotlinforforge:1.17.0'
