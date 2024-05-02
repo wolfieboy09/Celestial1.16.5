@@ -74,7 +74,7 @@ allprojects {
     }
 
     dependencies {
-        implementation "org.jetbrains.kotlin:${rootProject.kotlin}"
+        compileOnly "org.jetbrains.kotlin:${rootProject.kotlin}"
         //implementation "celestialexpressions:celestialexpressions:${rootProject.celestial_expressions_version}"
     }
 }

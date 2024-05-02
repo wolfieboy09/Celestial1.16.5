@@ -28,9 +28,10 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 
-    shadowCommon "org.jetbrains.kotlin:${rootProject.kotlin}" //TODO: Use Kotlin for Forge instead
     shadowCommon "celestialexpressions:celestialexpressions:${rootProject.celestial_expressions_version}"
     shadowCommon(implementation(project(":CelestialMain")))
+
+    modImplementation 'thedarkcolour:kotlinforforge:1.17.0'
 }
 
 repositories {
@@ -40,6 +41,10 @@ repositories {
             username = project.findProperty("githubUser")
             password = project.findProperty("githubToken")
         }
+    }
+    maven {
+        name = 'Kotlin for Forge'
+        url = 'https://thedarkcolour.github.io/KotlinForForge/'
     }
 }
 
