@@ -27,6 +27,18 @@ public class CelestialForge {
             }
         }
     }
+
+    // THIS IS A TEST TO SEE IF IT WORKS AND WHAT IT RETURNS
+    private static boolean printed = false;
+    @SubscribeEvent
+    public static void onEvent(TickEvent.PlayerTickEvent event) {
+        if (!printed) {
+            printed = true;
+            PlayerStages.printTagsForPlayer(event.player);
+        }
+    }
+
+
     public CelestialForge() {
         try {
             Class.forName("kotlin.Unit");
